@@ -17,7 +17,7 @@ public class NumberGenerator {
 
     public int generateNumber(){
         int newNumber = generateRandomNumber();
-        if(!validateNumber(newNumber)){
+        while(!validateNumber(newNumber)){
             newNumber = generateRandomNumber();
         }
         return newNumber;

@@ -1,5 +1,3 @@
-import com.sun.tools.attach.AgentInitializationException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +10,7 @@ public class Numbers {
     private List<Integer> generateNumbers() {
         List<Integer> answer = new ArrayList<>();
         NumberGenerator numberGenerator = new NumberGenerator();
-        for (int i = 0; i < DIGIT_NUMBER; i++) {
+        while(answer.size()!=DIGIT_NUMBER){
             int num = numberGenerator.generateNumber();
             if (!answer.contains(num)) {
                 answer.add(num);

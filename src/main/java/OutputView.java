@@ -7,7 +7,11 @@ public class OutputView {
         System.out.print(ball+"볼 ");
     }
 
+    public void printNothing(){
+        System.out.print("낫싱");
+    }
+
     public void printAnswerSituation(){
-        System.out.print("\n3개의 숫자를 모두 맞히셨습니다! 게임 끝");
+        System.out.print("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
     }
 }

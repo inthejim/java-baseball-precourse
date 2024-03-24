@@ -2,29 +2,14 @@ import java.util.List;
 
 public class Computer {
     private static List<Integer> answer;
+    public static boolean isEnded;
 
     public Computer(List<Integer> numbers){
         this.answer=numbers;
+        this.isEnded=false;
     }
 
-    public void getHint(List<Integer> numbers){
-        int[] score = checkAnswer(numbers);
-        int strike=score[0];
-        int ball=score[1];
-        OutputView output=new OutputView();
-
-        if(strike>0){
-            output.printStrike(strike);
-        }
-        if(strike==3){
-            output.printBall(ball);
-        }
-        if(ball>0){
-            output.printBall(ball);
-        }
-    }
-
-    private int[] checkAnswer(List<Integer> numbers){
+    public int[] checkAnswer(List<Integer> numbers){
         int ball = 0;
         int strike = 0;
         for(int i=0; i<3; i++){
@@ -34,6 +19,9 @@ public class Computer {
             if(!hasStrike(i,numbers) && hasBall(i,numbers)){
                 ball++;
             }
+        }
+        if(strike==3){
+            isEnded=true;
         }
         return new int[]{strike, ball};
     }

@@ -5,7 +5,7 @@ public class InputView {
 
     private Scanner scanner = new Scanner(System.in);
     public String getUserNumbers(){
-        System.out.println("숫자를 입력해주세요 : ");
+        System.out.print("숫자를 입력해주세요 : ");
         String input = scanner.nextLine();
         return input;
     }
@@ -14,10 +14,12 @@ public class InputView {
         if(validateSize(input)){
             String[] tmp=input.split("");
             for(int i=0;i<3;i++){
-                validateNumber(tmp[i]);
+                if(!validateNumber(tmp[i])){
+                    return false;
+                }
             }
         }
-        return false;
+        return true;
     }
 
     private boolean validateNumber(String input) {
@@ -33,4 +35,9 @@ public class InputView {
         return input.length()==3;
     }
 
+    public int getRestartOrEnd(){
+        System.out.println("게임을 새로 시작하려면 1,종료하려면 2를 입력하세요.");
+        String input = scanner.nextLine();
+        return Integer.parseInt(input);
+    }
 }
