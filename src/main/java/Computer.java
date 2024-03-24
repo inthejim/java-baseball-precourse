@@ -9,6 +9,19 @@ public class Computer {
 
     public void getHint(List<Integer> numbers){
         int[] score = checkAnswer(numbers);
+        int strike=score[0];
+        int ball=score[1];
+        OutputView output=new OutputView();
+
+        if(strike>0){
+            output.printStrike(strike);
+        }
+        if(strike==3){
+            output.printBall(ball);
+        }
+        if(ball>0){
+            output.printBall(ball);
+        }
     }
 
     private int[] checkAnswer(List<Integer> numbers){
